@@ -52,5 +52,12 @@ def evals(scores, candidates, Correct_ans, outfile1, write1 = 0):
         if Correct_ans[cindex]==np.argmax(ind_score):
            Accuracy+=1
         ind_score = []
+        """
+        if upper_limit>1820:
+           Accuracy_1820 =  Accuracy/float(cindex)
+           print("the accuracy till this point is: ", Accuracy_1820)
+           break
+        """
 
-    return (Accuracy/float(cindex)), Ranked_justifications_index
+    Accuracy_1820 = Accuracy / float(cindex)
+    return (Accuracy_1820, Ranked_justifications_index)

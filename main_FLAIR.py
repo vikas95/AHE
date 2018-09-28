@@ -99,20 +99,20 @@ with open(Question_json_file) as f:
 
 performance_file = open("ARC_easy_test_performance_BiDAF_0.2_neg.txt","w")
 # J_Threshold_set = [i+1 for i in range(9)]
-J_Threshold_set = [2]
+J_Threshold_set = [3]
 
 Ensemble_file = "EASY_test_goodJ_scores.txt"
 out_file = open("EASY_test_good_J_scores.txt","w")
-file1="/xdisk/vikasy/ARC-Easy-Test_JUSTIFICATION_FLAIR_Word_emb_10.jsonl"
+file1="/xdisk/vikasy/ARC-Easy-Test_JUSTIFICATION_FLAIR_Word_emb_3.jsonl"
 for J_Threshold in J_Threshold_set:
     # file1="Justifications_Easy_TEST_cand_BOOST_3_40_BM25.txt"
 
     Score_matrix = Word2Vec_score(All_questions, IDF_Mat,  file1, IDF, J_Threshold, All_q_terms, 4196)
-
+    print("Score matrix looks like: ", len(Score_matrix), Score_matrix)
     Accuracy, Ranked_justifications_index=evals(Score_matrix, candidates, correct_ans, Ensemble_file)
 
     print ("We are getting this much ",Accuracy)
-
+    """
     print ("the threshold value is: ", J_Threshold)
     newline = str(J_Threshold) + "\t" + str(Accuracy)
     performance_file.write(newline + "\n")
@@ -121,3 +121,4 @@ for J_Threshold in J_Threshold_set:
     SIGIR_just(file1, SIGIR_ranked_file, Ranked_justifications_index)
 
     print("ranked justifications look like: ", collections.Counter(Ranked_justifications_index))
+    """

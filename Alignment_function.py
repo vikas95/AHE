@@ -84,10 +84,13 @@ def Word2Vec_score(Question, IDF_Mat, Corpus, IDF, Justification_threshold, Q_te
                     total_score = max_score + 0.2 * (min_score)  ## + max_score_d + min_score_d
                     total_score = total_score / float(ques1.shape[0])
                     Document_score[Jind].append(total_score)
-            if Jind%50==0:
+            if Jind%100==0:
                print("we have calculated alignment upto this justification: ",Jind)
                print("and the alignment scores are: ", Document_score[Jind])
             Jind+=1
 
+            # if Jind==1830:
+               # break
+    print("It should come here after breaking")
     return Document_score
 
