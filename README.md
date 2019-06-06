@@ -1,4 +1,4 @@
-# Alignment Over Heterogeneous Embeddings for Question Answering - [paper](https://www.aclweb.org/anthology/N19-1274)
+# Alignment Over Heterogeneous Embeddings for Question Answering - [Paper](https://www.aclweb.org/anthology/N19-1274)
 
 These codes are provided to reproduce the numbers mentioned in the paper on ARC dataset. 
 AHE can be simply applied to any text similarity task. In question answering (QA), we have considered "question" as text 1 and "answer" as text 2. 
